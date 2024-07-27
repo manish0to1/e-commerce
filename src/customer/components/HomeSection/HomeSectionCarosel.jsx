@@ -27,12 +27,12 @@ const HomeSectionCarosel = () => {
           items={items}
           disableButtonsControls
           disableDotsControls
-          // autoPlay
-          // autoPlayInterval={1000}
-          infinite
           responsive={responsive}
           onSlideChanged={syncActiveIndex}
           activeIndex={activeIndex}
+          // autoPlay
+          // autoPlayInterval={1000}
+          // infinite
         />
 
         {activeIndex !== items.length - 5 && (

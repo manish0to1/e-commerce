@@ -5,7 +5,7 @@ import HomeSectionCarosel from "../../components/HomeSection/HomeSectionCarosel"
 const HomePage = () => {
   return (
     <div>
-      <MainCarosel />Men's
+      <MainCarosel />
       <div className="space-y-10 py-20 flex flex-col justify-center px-5 lg:px-10">
         <HomeSectionCarosel />
         <HomeSectionCarosel />

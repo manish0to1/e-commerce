@@ -6,10 +6,10 @@ const HomeSectionCard = ({ product }) => {
       className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem]
      mx-3 border"
     >
-      <div className="h-[13] w-[10rem]">
+      <div className="h-[13rem] w-[12rem]">
         <img
           className="object-cover object-top w-full h-full"
-          src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/j/a/r/l-poch521835-peter-england-original-imag7jg47g7cxhg3-bb.jpeg?q=70"
+          src={product.imageUrl}
           alt=""
         />
       </div>
