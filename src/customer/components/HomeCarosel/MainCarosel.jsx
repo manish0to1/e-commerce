@@ -19,7 +19,7 @@ const MainCarosel = () => {
     disableButtonsControls
     // autoPlay
     // autoPlayInterval={1000}
-    infinite
+    // infinite
     />
   );
 };
