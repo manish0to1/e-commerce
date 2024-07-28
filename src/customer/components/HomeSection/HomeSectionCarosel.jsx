@@ -7,16 +7,22 @@ import { mens_kurta } from "../../Data/mens_kurta";
 
 const HomeSectionCarosel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+
   const responsive = {
     0: { items: 1 },
     720: { items: 3 },
-    1024: { items: 5 },
+    1024: { items: 5.5 },
   };
 
-  const slidePrev = () => setActiveIndex(activeIndex - 1);
-  const slideNext = () => setActiveIndex(activeIndex + 1);
+  const slidePrev = () => {
+    console.log("slidePrev called");
+    setActiveIndex(activeIndex - 1);
+  };
+  const slideNext = () => {
+    console.log("slideNext called");
+    setActiveIndex(activeIndex + 1);
+  };
   const syncActiveIndex = ({ item }) => setActiveIndex(item);
-
   const items = mens_kurta
     .slice(0, 10)
     .map((item) => <HomeSectionCard product={item} />);
@@ -35,7 +41,7 @@ const HomeSectionCarosel = () => {
           // infinite
         />
 
-        {activeIndex !== items.length - 5 && (
+        {activeIndex < items.length - 1 && (
           <Button
             variant="contained"
             className="z-50"
@@ -54,23 +60,25 @@ const HomeSectionCarosel = () => {
             />
           </Button>
         )}
-        <Button
-          variant="contained"
-          className="z-50"
-          onClick={slidePrev}
-          sx={{
-            position: "absolute",
-            top: "8rem",
-            left: "0rem",
-            transform: "translate(-50%) rotate(90deg)",
-            bgcolor: "white",
-          }}
-          aria-label="prev"
-        >
-          <KeyboardArrowLeftIcon
-            sx={{ transform: "rotate(-90deg)", color: "black" }}
-          />
-        </Button>
+        {activeIndex > 0 && (
+          <Button
+            variant="contained"
+            className="z-50"
+            onClick={slidePrev}
+            sx={{
+              position: "absolute",
+              top: "8rem",
+              left: "0rem",
+              transform: "translate(-50%) rotate(90deg)",
+              bgcolor: "white",
+            }}
+            aria-label="prev"
+          >
+            <KeyboardArrowLeftIcon
+              sx={{ transform: "rotate(-90deg)", color: "black" }}
+            />
+          </Button>
+        )}
       </div>
     </div>
   );
