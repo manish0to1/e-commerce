@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Grid, Typography } from "@mui/material";
-import { Link } from "react-alice-carousel";
+import { Button, Grid, Typography, Link } from "@mui/material";
+// import { Link } from "react-alice-carousel";
 
 const Footer = () => {
   return (
@@ -179,7 +179,8 @@ const Footer = () => {
           <Typography variant="body2" component="p" align="center">
             Icons made by{" "}
             <Link
-              href="https://www.freepik.com/" target="_blank"
+              href="https://www.freepik.com/"
+              target="_blank"
               color="inherit"
               underline="always"
             >
@@ -187,7 +188,8 @@ const Footer = () => {
             </Link>{" "}
             from{" "}
             <Link
-              href="https://www.flaticon.com/" target="_blank"
+              href="https://www.flaticon.com/"
+              target="_blank"
               color="inherit"
               underline="always"
             >
