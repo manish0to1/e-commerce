@@ -222,7 +222,7 @@ export default function Product() {
                               defaultChecked={option.checked}
                               id={`filter-${section.id}-${optionIdx}`}
                               name={`${section.id}[]`}
-                              type="checkbox"
+                              type="radio"
                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                             />
                             <label
@@ -237,7 +237,7 @@ export default function Product() {
                     </DisclosurePanel>
                   </Disclosure>
                 ))}
-
+                {/* ==================================== singleFilter ============================================== */}
                 {singleFilter.map((section) => (
                   <Disclosure
                     key={section.id}
@@ -270,7 +270,7 @@ export default function Product() {
                               defaultChecked={option.checked}
                               id={`filter-${section.id}-${optionIdx}`}
                               name={`${section.id}[]`}
-                              type="checkbox"
+                              type="radio"
                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                             />
                             <label
