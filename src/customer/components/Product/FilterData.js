@@ -1,13 +1,13 @@
-export const color = [
-  "White",
-  "Black",
-  "Red",
-  "Marun",
-  "Being",
-  "Pink",
-  "Yellow",
-  "Green",
-];
+// export const color = [
+//   "White",
+//   "Black",
+//   "Red",
+//   "Marun",
+//   "Being",
+//   "Pink",
+//   "Yellow",
+//   "Green",
+// ];
 
 export const filters = [
   {
@@ -26,7 +26,7 @@ export const filters = [
   {
     id: "size",
     name: "Size",
-    option: [
+    options: [
       { value: "S", label: "S" },
       { value: "M", label: "M" },
       { value: "L", label: "L" },
@@ -38,7 +38,7 @@ export const singleFilter = [
   {
     id: "price",
     name: "Price",
-    option: [
+    options: [
       { value: "₹159-399", label: "₹159 to ₹399" },
       { value: "₹399-999", label: "₹399 to ₹999" },
       { value: "₹999-1999", label: "₹999 to ₹1999" },
