@@ -329,7 +329,7 @@ export default function Product() {
                   ))}
                 </form>
               </div>
-              {/* ############################# Product Grid ##################### */}
+              {/* ############################# Product Grid ######################### */}
               <div className="lg:col-span-4 w-full">
                 <div className="flex flex-wrap justify-center bg-white pl-16 py-5">
                   {mens_kurta.map((product) => (
