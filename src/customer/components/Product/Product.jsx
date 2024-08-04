@@ -42,37 +42,35 @@ export default function Product() {
   const navigate = useNavigate();
 
   const handleFilter = (value, sectionId) => {
-    const searchParams = new URLSearchParams(location.search);
-    let filterValue = searchParams.getAll(sectionId);
+    const searchParamms = new URLSearchParams(location.search);
+    let filterValue = searchParamms.getAll(sectionId);
     if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
       filterValue = filterValue[0].split(",").filter((item) => item !== value);
       if (filterValue.length === 0) {
-        searchParams.delete(sectionId);
+        searchParamms.delete(sectionId);
       }
     } else {
       filterValue.push(value);
     }
     if (filterValue.length > 0) {
-      searchParams.set(sectionId, filterValue.join(","));
+      searchParamms.set(sectionId, filterValue.join(","));
     }
-    const query = searchParams.toString();
+    const query = searchParamms.toString();
     navigate({ search: `?${query}` });
   };
 
   return (
     <div className="bg-white">
       <div>
-        {/* Mobile filter dialog ######################### Dialog Section ##############  */}
+        {/* Mobile filter dialog */}
         <Dialog
           open={mobileFiltersOpen}
-          onClose={() => setMobileFiltersOpen(false)} //############# 1
+          onClose={setMobileFiltersOpen}
           className="relative z-40 lg:hidden"
         >
-          <DialogBackdrop 
-          className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear" />
+          <DialogBackdrop className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear" />
           <div className="fixed inset-0 z-40 flex">
             <DialogPanel className="relative ml-auto flex h-full w-full max-w-xs transform flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl transition duration-300 ease-in-out">
-
               <div className="flex items-center justify-between px-4">
                 <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                 <button
@@ -85,6 +83,7 @@ export default function Product() {
                 </button>
               </div>
 
+              {/* Filters*/}
               <form className="mt-4 border-t border-gray-200">
                 {filters.map((section) => (
                   <Disclosure
@@ -100,11 +99,11 @@ export default function Product() {
                         <span className="ml-6 flex items-center">
                           <PlusIcon
                             aria-hidden="true"
-                            className="h-5 w-5 group-open:hidden" //################# 2
+                            className="h-5 w-5 group-data-[open]:hidden"
                           />
                           <MinusIcon
                             aria-hidden="true"
-                            className="h-5 w-5 group-open:block hidden" //############ 3
+                            className="h-5 w-5 [.group:not([data-open])_&]:hidden"
                           />
                         </span>
                       </DisclosureButton>
@@ -137,7 +136,6 @@ export default function Product() {
             </DialogPanel>
           </div>
         </Dialog>
-        {/* ################################## Main #######################  */}
         <main className="mx-auto px-4 sm:px-6 lg:px-20">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
@@ -147,7 +145,6 @@ export default function Product() {
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  {/* ############ Menu Button 1 ############ */}
                   <MenuButton className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort
                     <ChevronDownIcon
@@ -156,9 +153,11 @@ export default function Product() {
                     />
                   </MenuButton>
                 </div>
-                {/* ############### Menu Items ############# */}
-                <MenuItems //########################### Checkout #############
-                className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+
+                <MenuItems
+                  // transition
+                  className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition focus:outline-none"
+                >
                   <div className="py-1">
                     {sortOptions.map((option) => (
                       <MenuItem key={option.name}>
@@ -197,7 +196,6 @@ export default function Product() {
             </div>
           </div>
 
-          {/* ###################### Section Part ############################# */}
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
             <h2 id="products-heading" className="sr-only">
               Products
@@ -205,8 +203,11 @@ export default function Product() {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               <div>
-                <div className="flex justify-between items-center py-10">
-                  <h1 className="text-lg opacity-50 font-bold">Filters</h1>
+                <div
+                  className="flex justify-between items-center py-10
+                "
+                >
+                  <h1 className="text-lg opacity-50 font-bold">Fiilters</h1>
                   <FilterListIcon className="opacity-50" />
                 </div>
                 <form className="hidden lg:block">
@@ -224,17 +225,15 @@ export default function Product() {
                           <span className="ml-6 flex items-center">
                             <PlusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 group-open:hidden"
+                              className="h-5 w-5 group-data-[open]:hidden"
                             />
                             <MinusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 group-open:block hidden" //############ Checkout ##############
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
                             />
                           </span>
                         </DisclosureButton>
                       </h3>
-
-
 
                       <DisclosurePanel className="pt-6">
                         <div className="space-y-4">
@@ -251,7 +250,7 @@ export default function Product() {
                                 name={`${section.id}[]`}
                                 defaultValue={option.value}
                                 defaultChecked={location.search.includes(
-                                  option.value
+                                  option.checked
                                 )}
                                 type="checkbox"
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
@@ -270,26 +269,7 @@ export default function Product() {
                     </Disclosure>
                   ))}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  {/* //######################################  Adding singleFilter ################################## */}
+                  {/* ==================================== singleFilter ============================================== */}
                   {singleFilter.map((section) => (
                     <Disclosure
                       key={section.id}
@@ -302,22 +282,18 @@ export default function Product() {
                             {section.name}
                           </span>
 
-
-
                           <span className="ml-6 flex items-center">
                             <PlusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 group-open:hidden"
+                              className="h-5 w-5 group-data-[open]:hidden"
                             />
                             <MinusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 group-open:block hidden" //############ Checkout ##############
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
                             />
                           </span>
                         </DisclosureButton>
                       </h3>
-
-
 
                       <DisclosurePanel className="pt-6">
                         <div className="space-y-4">
@@ -339,7 +315,6 @@ export default function Product() {
                                 type="radio"
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
-
                               <label
                                 htmlFor={`filter-${section.id}-${optionIdx}`}
                                 className="ml-3 text-sm text-gray-600"
@@ -354,16 +329,12 @@ export default function Product() {
                   ))}
                 </form>
               </div>
-
-              <div className="lg:col-span-4">
-                <div className="border-2">
-                  <div className="bg-white">
-                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-1">
-                      {mens_kurta.map((product) => (
-                        <ProductCard key={product.id} product={product} />
-                      ))}
-                    </div>
-                  </div>
+              {/* ############################# Product Grid ##################### */}
+              <div className="lg:col-span-4 w-full">
+                <div className="flex flex-wrap justify-center bg-white pl-16 py-5">
+                  {mens_kurta.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
                 </div>
               </div>
             </div>

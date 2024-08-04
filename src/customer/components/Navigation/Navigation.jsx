@@ -10,7 +10,7 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
- 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -224,7 +224,7 @@ export default function Navigation() {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <span className="sr-only">Your Company</span>
-                <img src="./D.jpg" alt="USD" className="h-8 w-8 mr-2" />
+                <img src="../img/D.jpg" alt="USD" className="h-8 w-8 mr-2" />
               </div>
 
               {/* Flyout menus */}

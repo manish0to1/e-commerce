@@ -42,30 +42,30 @@ export default function Product() {
   const navigate = useNavigate();
 
   const handleFilter = (value, sectionId) => {
-    const searchParamms = new URLSearchParams(location.search);
-    let filterValue = searchParamms.getAll(sectionId);
+    const searchParams = new URLSearchParams(location.search);
+    let filterValue = searchParams.getAll(sectionId);
     if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
       filterValue = filterValue[0].split(",").filter((item) => item !== value);
       if (filterValue.length === 0) {
-        searchParamms.delete(sectionId);
+        searchParams.delete(sectionId);
       }
     } else {
       filterValue.push(value);
     }
     if (filterValue.length > 0) {
-      searchParamms.set(sectionId, filterValue.join(","));
+      searchParams.set(sectionId, filterValue.join(","));
     }
-    const query = searchParamms.toString();
+    const query = searchParams.toString();
     navigate({ search: `?${query}` });
   };
 
   return (
     <div className="bg-white">
       <div>
-        {/* Mobile filter dialog */}
+        {/* Mobile filter dialog ######################### Dialog Section ##############  */}
         <Dialog
           open={mobileFiltersOpen}
-          onClose={setMobileFiltersOpen}
+          onClose={() => setMobileFiltersOpen(false)} //############# 1
           className="relative z-40 lg:hidden"
         >
           <DialogBackdrop className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear" />
@@ -83,7 +83,7 @@ export default function Product() {
                 </button>
               </div>
 
-              {/* Filters*/}
+              {/* Filters //######################################### */}
               <form className="mt-4 border-t border-gray-200">
                 {filters.map((section) => (
                   <Disclosure
@@ -92,6 +92,7 @@ export default function Product() {
                     className="border-t border-gray-200 px-4 py-6"
                   >
                     <h3 className="-mx-2 -my-3 flow-root">
+                      {/* ####################### Disclosure Button 2 #################### */}
                       <DisclosureButton className="group flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
                         <span className="font-medium text-gray-900">
                           {section.name}
@@ -99,15 +100,16 @@ export default function Product() {
                         <span className="ml-6 flex items-center">
                           <PlusIcon
                             aria-hidden="true"
-                            className="h-5 w-5 group-data-[open]:hidden"
+                            className="h-5 w-5 group-open:hidden" //################# 2
                           />
                           <MinusIcon
                             aria-hidden="true"
-                            className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            className="h-5 w-5 group-open:block hidden" //############ 3
                           />
                         </span>
                       </DisclosureButton>
                     </h3>
+
                     <DisclosurePanel className="pt-6">
                       <div className="space-y-6">
                         {section.options.map((option, optionIdx) => (
@@ -136,6 +138,7 @@ export default function Product() {
             </DialogPanel>
           </div>
         </Dialog>
+        {/* ################################## Main #######################  */}
         <main className="mx-auto px-4 sm:px-6 lg:px-20">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
@@ -145,6 +148,7 @@ export default function Product() {
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
+                  {/* ############ Menu Button 1 ############ */}
                   <MenuButton className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort
                     <ChevronDownIcon
@@ -153,10 +157,9 @@ export default function Product() {
                     />
                   </MenuButton>
                 </div>
-
-                <MenuItems
-                  // transition
-                  className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition focus:outline-none"
+                {/* ############### Menu Items ############# */}
+                <MenuItems //########################### Checkout #############
+                  className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
                   <div className="py-1">
                     {sortOptions.map((option) => (
@@ -196,6 +199,7 @@ export default function Product() {
             </div>
           </div>
 
+          {/* ###################### Section Part ############################# */}
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
             <h2 id="products-heading" className="sr-only">
               Products
@@ -203,11 +207,8 @@ export default function Product() {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               <div>
-                <div
-                  className="flex justify-between items-center py-10
-                "
-                >
-                  <h1 className="text-lg opacity-50 font-bold">Fiilters</h1>
+                <div className="flex justify-between items-center py-10">
+                  <h1 className="text-lg opacity-50 font-bold">Filters</h1>
                   <FilterListIcon className="opacity-50" />
                 </div>
                 <form className="hidden lg:block">
@@ -225,11 +226,11 @@ export default function Product() {
                           <span className="ml-6 flex items-center">
                             <PlusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 group-data-[open]:hidden"
+                              className="h-5 w-5 group-open:hidden"
                             />
                             <MinusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                              className="h-5 w-5 group-open:block hidden" //############ Checkout ##############
                             />
                           </span>
                         </DisclosureButton>
@@ -250,7 +251,7 @@ export default function Product() {
                                 name={`${section.id}[]`}
                                 defaultValue={option.value}
                                 defaultChecked={location.search.includes(
-                                  option.checked
+                                  option.value
                                 )}
                                 type="checkbox"
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
@@ -269,7 +270,7 @@ export default function Product() {
                     </Disclosure>
                   ))}
 
-                  {/* ==================================== singleFilter ============================================== */}
+                  {/* //######################################  Adding singleFilter ################################## */}
                   {singleFilter.map((section) => (
                     <Disclosure
                       key={section.id}
@@ -285,11 +286,11 @@ export default function Product() {
                           <span className="ml-6 flex items-center">
                             <PlusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 group-data-[open]:hidden"
+                              className="h-5 w-5 group-open:hidden"
                             />
                             <MinusIcon
                               aria-hidden="true"
-                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                              className="h-5 w-5 group-open:block hidden" //############ Checkout ##############
                             />
                           </span>
                         </DisclosureButton>
@@ -315,6 +316,7 @@ export default function Product() {
                                 type="radio"
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
+
                               <label
                                 htmlFor={`filter-${section.id}-${optionIdx}`}
                                 className="ml-3 text-sm text-gray-600"
@@ -329,12 +331,16 @@ export default function Product() {
                   ))}
                 </form>
               </div>
-              {/* ############################# Product Grid ##################### */}
-              <div className="lg:col-span-4 w-full">
-                <div className="flex flex-wrap justify-center bg-white py-5">
-                  {mens_kurta.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
+
+              <div className="lg:col-span-4">
+                <div className="border-2">
+                  <div className="bg-white">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-1">
+                      {mens_kurta.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
