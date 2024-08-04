@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductCard.css";
-
+ 
 const ProductCard = ({ product }) => {
   return (
     <div className="productCard w-[15rem] m-3 transition-all cursor-pointer">
@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
         />
       </div>
       <div className="textPart bg-white p-3">
-        <div>
+        <div> 
           <p className="font-bold opacity-60">{product.brand}</p>
           <p>{product.title}</p>
         </div>

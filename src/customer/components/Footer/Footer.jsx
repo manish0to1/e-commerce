@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Grid, Typography, Link } from "@mui/material";
 // import { Link } from "react-alice-carousel";
-
+ 
 const Footer = () => {
   return (
     <div>

@@ -2,7 +2,7 @@ import React from "react";
 import MainCarosel from "../../components/HomeCarosel/MainCarosel";
 import HomeSectionCarosel from "../../components/HomeSection/HomeSectionCarosel";
 import { mens_kurta } from "../../Data/mens_kurta";
-
+ 
 const HomePage = () => {
   return (
     <div>
@@ -17,5 +17,5 @@ const HomePage = () => {
     </div>
   );
 };
-
+ 
 export default HomePage;

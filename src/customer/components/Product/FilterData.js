@@ -10,7 +10,7 @@
 // ];
 
 export const filters = [
-  {
+  { 
     id: "color",
     name: "Color",
     options: [
