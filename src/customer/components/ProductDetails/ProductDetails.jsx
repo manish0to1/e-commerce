@@ -110,36 +110,24 @@ export default function ProductDetails() {
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10 ">
           {/* Image gallery */}
-          <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-            <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+          <div className="flex flex-col items-center">
+            <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
               <img
                 alt={product.images[0].alt}
                 src={product.images[0].src}
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                <img
-                  alt={product.images[1].alt}
-                  src={product.images[1].src}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                <img
-                  alt={product.images[2].alt}
-                  src={product.images[2].src}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-            </div>
-            <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-              <img
-                alt={product.images[3].alt}
-                src={product.images[3].src}
-                className="h-full w-full object-cover object-center"
-              />
+            <div className="flex flex-wrap justify-center space-x-5">
+              {product.images.map((item) => (
+                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
@@ -334,4 +322,3 @@ export default function ProductDetails() {
     </div>
   );
 }
- 
