@@ -166,7 +166,7 @@ export default function ProductDetails() {
 
               <form className="mt-10">
                 {/* Colors */}
-                ################# Here Now #################
+                ################# Here Now ##################
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
