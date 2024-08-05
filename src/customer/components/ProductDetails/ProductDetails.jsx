@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
+import { Rating } from "@mui/material";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -154,11 +155,18 @@ export default function ProductDetails() {
 
               {/* Reviews */}
               <div className="mt-6">
-                ####################### Here ######################## 
+                <div className="flex items-center space-x-3">
+                  <Rating name="read-only" value={"4.6"} readOnly />{" "}
+                  <p className="text-sm opacity-50">7462 Ratings</p>
+                  <p className="ml-3 text-sm font-medium opacity-50 text-indigo-600 hover:text-indigo-500">
+                    2196 Reviews
+                  </p>
+                </div>
               </div>
 
               <form className="mt-10">
                 {/* Colors */}
+                ################# Here Now #################
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
@@ -190,7 +198,6 @@ export default function ProductDetails() {
                     </RadioGroup>
                   </fieldset>
                 </div>
-
                 {/* Sizes */}
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
@@ -253,7 +260,6 @@ export default function ProductDetails() {
                     </RadioGroup>
                   </fieldset>
                 </div>
-
                 <button
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
