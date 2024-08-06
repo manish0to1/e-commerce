@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
-import { Rating } from "@mui/material";
+import { Grid, Rating } from "@mui/material";
+import ProductDetailsCard from "./ProductDetailsCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -267,7 +268,20 @@ export default function ProductDetails() {
         </section>
 
         {/* rating and reviews */}
-        <section></section>
+        <section>
+          <h1 className="text-lg font-semibold pb-4">
+            Recent Rating & Reviews
+          </h1>
+          <div className="border p-5">
+            <Grid container spacing={7}>
+              <Grid item xs={7}>
+                <div className="space-y-5">
+                  <ProductDetailsCard />
+                </div>
+              </Grid>
+            </Grid>
+          </div>
+        </section>
       </div>
     </div>
   );
