@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
-import { Grid, Rating } from "@mui/material";
+import { Box, Grid, LinearProgress, Rating } from "@mui/material";
 import ProductDetailsCard from "./ProductDetailsCard";
 
 const product = {
@@ -284,10 +284,104 @@ export default function ProductDetails() {
 
               <Grid item xs={5}>
                 <h1 className="text-xl font-semibold pb-1">Product Rating</h1>
-                <div>
+                <div className="flex space-x-2 items-center">
                   <Rating value={4.6} precision={0.5} readOnly />
                   <p className="opacity-60">3215 Rating</p>
                 </div>
+
+                <Box className="mt-5">
+                  <Grid container alignitems="center" gap={2}>
+                    <Grid item xs={2}>
+                      <p>Excellent</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        xs={{
+                          bgcolor: "#d0d0d0d",
+                          height: 7,
+                          borderRadius: 4,
+                        }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container alignitems="center" gap={2}>
+                    <Grid item xs={2}>
+                      <p>Excellent</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        xs={{
+                          bgcolor: "#d0d0d0d",
+                          height: 7,
+                          borderRadius: 4,
+                        }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container alignitems="center" gap={2}>
+                    <Grid item xs={2}>
+                      <p>Excellent</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        xs={{
+                          bgcolor: "#d0d0d0d",
+                          height: 7,
+                          borderRadius: 4,
+                        }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container alignitems="center" gap={2}>
+                    <Grid item xs={2}>
+                      <p>Excellent</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        xs={{
+                          bgcolor: "#d0d0d0d",
+                          height: 7,
+                          borderRadius: 4,
+                        }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container alignitems="center" gap={2}>
+                    <Grid item xs={2}>
+                      <p>Excellent</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        xs={{
+                          bgcolor: "#d0d0d0d",
+                          height: 7,
+                          borderRadius: 4,
+                        }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+
+                  
+                </Box>
               </Grid>
             </Grid>
           </div>
