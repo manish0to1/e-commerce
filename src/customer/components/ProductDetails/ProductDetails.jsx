@@ -289,98 +289,96 @@ export default function ProductDetails() {
                   <p className="opacity-60">3215 Rating</p>
                 </div>
 
-                <Box className="mt-5">
-                  <Grid container alignitems="center" gap={2}>
+                <Box className="mt-5 space-y-2">
+                  <Grid container alignItems="center" gap={2}>
                     <Grid item xs={2}>
-                      <p>Excellent</p>
+                      <p className="font-semibold">Excellent</p>
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        xs={{
-                          bgcolor: "#d0d0d0d",
+                        sx={{
+                          bgcolor: "#d0d0d0",
                           height: 7,
                           borderRadius: 4,
                         }}
                         variant="determinate"
-                        value={40}
+                        value={65}
                         color="success"
                       />
                     </Grid>
                   </Grid>
 
-                  <Grid container alignitems="center" gap={2}>
+                  <Grid container alignItems="center" gap={2}>
                     <Grid item xs={2}>
-                      <p>Excellent</p>
+                      <p className="font-semibold">Very Good</p>
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        xs={{
-                          bgcolor: "#d0d0d0d",
+                        sx={{
+                          bgcolor: "#d0d0d0",
                           height: 7,
                           borderRadius: 4,
                         }}
                         variant="determinate"
-                        value={40}
+                        value={80}
                         color="success"
                       />
                     </Grid>
                   </Grid>
 
-                  <Grid container alignitems="center" gap={2}>
+                  <Grid container alignItems="center" gap={2}>
                     <Grid item xs={2}>
-                      <p>Excellent</p>
+                      <p className="font-semibold">Good</p>
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        xs={{
-                          bgcolor: "#d0d0d0d",
+                        sx={{
+                          bgcolor: "#d0d0d0",
                           height: 7,
                           borderRadius: 4,
                         }}
                         variant="determinate"
                         value={40}
-                        color="success"
+                        color="info"
                       />
                     </Grid>
                   </Grid>
 
-                  <Grid container alignitems="center" gap={2}>
+                  <Grid container alignItems="center" gap={2}>
                     <Grid item xs={2}>
-                      <p>Excellent</p>
+                      <p className="font-semibold">Average</p>
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        xs={{
-                          bgcolor: "#d0d0d0d",
+                        sx={{
+                          bgcolor: "#d0d0d0",
                           height: 7,
                           borderRadius: 4,
                         }}
                         variant="determinate"
-                        value={40}
-                        color="success"
+                        value={18}
+                        color="warning"
                       />
                     </Grid>
                   </Grid>
 
-                  <Grid container alignitems="center" gap={2}>
+                  <Grid container alignItems="center" gap={2}>
                     <Grid item xs={2}>
-                      <p>Excellent</p>
+                      <p className="font-semibold">Poor</p>
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        xs={{
-                          bgcolor: "#d0d0d0d",
+                        sx={{
+                          bgcolor: "#d0d0d0",
                           height: 7,
                           borderRadius: 4,
                         }}
                         variant="determinate"
-                        value={40}
-                        color="success"
+                        value={10}
+                        color="error"
                       />
                     </Grid>
                   </Grid>
-
-                  
                 </Box>
               </Grid>
             </Grid>
