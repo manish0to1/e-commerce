@@ -9,7 +9,7 @@ export const mens_kurta = [
     price: 1499,
     discountPersent: 66,
     size: [
-      {
+      { 
         name: "S",
         quantity: 20,
       },
