@@ -1,7 +1,12 @@
 import React from "react";
+import CartItem from "./CartItem";
 
 const Cart = () => {
-  return <div className="text-xl font-bold text-red-700">Cart Page !</div>;
+  return (
+    <div className=" ">
+      <CartItem />
+    </div>
+  );
 };
 
 export default Cart;
