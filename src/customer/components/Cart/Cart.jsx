@@ -5,8 +5,10 @@ const Cart = () => {
   return (
     <div>
       <div className="lg:grid grid-cols-3 lg:px-16 relative">
-        <div className="col-span-2">
-          <CartItem />
+        <div className="col-span-2 space-y-8">
+          {[1, 1, 1].map((item) => (
+            <CartItem />
+          ))}
         </div>
         <div className="px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0">
           <div className="border ">
@@ -28,7 +30,6 @@ const Cart = () => {
                 <span>Delivery Charge</span>
                 <span className="text-green-500">Free</span>
               </div>
-
               <div className="flex justify-between text-black pt-4 font-bold">
                 <span>Total Amount</span>
                 <span className="text-green-500">₹1278</span>
@@ -36,7 +37,7 @@ const Cart = () => {
             </div>
             <button
               variant="contained"
-              className="px-2.5rem py-0.5rem flex mt-8 justify-center items-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-full py-2 px-2.5rem py-0.5rem flex mt-8 justify-center items-center rounded-md border border-transparent bg-indigo-600 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Add to Cart
             </button>
