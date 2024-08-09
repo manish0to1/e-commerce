@@ -1,6 +1,7 @@
 import { Button, IconButton } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { red } from "@mui/material/colors";
 import React from "react";
 
 const CartItem = () => {
@@ -38,7 +39,7 @@ const CartItem = () => {
           </IconButton>
         </div>
         <div>
-          <Button sx={{ color: "red-600" }}>Remove</Button>
+          <Button sx={{ color: red[600] }}>Remove</Button>
         </div>
       </div>
     </div>
