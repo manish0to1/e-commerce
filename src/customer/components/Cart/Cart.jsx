@@ -15,7 +15,7 @@ const Cart = () => {
             <p className="font-bold opacity-60 pb-4">Price Details</p>
             <hr />
 
-            <div className="space-y-3 font-semibold">
+            <div className="space-y-3 font-semibold p-5">
               <div className="flex justify-between text-black pt-4">
                 <span>Price</span>
                 <span>₹4697</span>
@@ -30,6 +30,7 @@ const Cart = () => {
                 <span>Delivery Charge</span>
                 <span className="text-green-500">Free</span>
               </div>
+              <hr />
               <div className="flex justify-between text-black pt-4 font-bold">
                 <span>Total Amount</span>
                 <span className="text-green-500">₹1278</span>
@@ -37,7 +38,7 @@ const Cart = () => {
             </div>
             <button
               variant="contained"
-              className="w-full py-2 px-2.5rem py-0.5rem flex mt-8 justify-center items-center rounded-md border border-transparent bg-indigo-600 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-full px-2.5rem py-2 flex  justify-center items-center rounded-md border border-transparent bg-indigo-600 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Add to Cart
             </button>
