@@ -82,6 +82,7 @@ const DeliveryForm = () => {
                     fullWidth
                     multiline
                     rows={4}
+                    autoComplete="given-address"
                   />
                 </Grid>
                 {/* city */}
@@ -92,6 +93,7 @@ const DeliveryForm = () => {
                     name="city"
                     label="City"
                     fullWidth
+                    autoComplete="given-city"
                   />
                 </Grid>
                 {/* state */}
@@ -102,6 +104,7 @@ const DeliveryForm = () => {
                     name="state"
                     label="State"
                     fullWidth
+                    autoComplete="given-state"
                   />
                 </Grid>
                 {/* pin or zip number */}
@@ -112,6 +115,7 @@ const DeliveryForm = () => {
                     name="zip"
                     label="Pin Code"
                     fullWidth
+                    autoComplete="given-zip"
                   />
                 </Grid>
                 {/* phone number */}
@@ -122,6 +126,7 @@ const DeliveryForm = () => {
                     name="mobileNumber"
                     label="Contact Number"
                     fullWidth
+                    autoComplete="given-number"
                   />
                 </Grid>
                 {/* delivery here button  */}
