@@ -36,6 +36,10 @@ const OrderPage = () => {
             </div>
           </div>
         </Grid>
+
+        <Grid item xs={9}>
+
+        </Grid>
       </Grid>
     </div>
   );
