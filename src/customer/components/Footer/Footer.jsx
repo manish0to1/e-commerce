@@ -174,7 +174,7 @@ const Footer = () => {
             &copy; 2024 | All rights reserved by Manish.
           </Typography>
           <Typography variant="body2" component="p" align="center">
-            Made with love by me..😁.
+            Made with try by me..😉.
           </Typography>
           <Typography variant="body2" component="p" align="center">
             Icons made by{" "}
