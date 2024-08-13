@@ -22,16 +22,20 @@ const OrderDetails = () => {
           sx={{ alignContent: "center", justifyContent: "space-between" }}
         >
           <Grid item xs={6}>
-            <div className="flex space-x-5">
+            <div>
               <img
                 className="w-[5rem] h-[5rem] object-cover object-top"
                 src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70"
                 alt=""
               />
-              <div>
+              <div className="space-y-2 ml-5">
                 <p>title</p>
-                <p>size</p>
-                <p>seller</p>
+                <p className="space-x-5">
+                  <span>Size : M </span>
+                  <span>Color : color</span>
+                </p>
+                <p>eller</p>
+                <p>Price</p>
               </div>
             </div>
           </Grid>
