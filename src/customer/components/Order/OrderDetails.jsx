@@ -39,7 +39,7 @@ const OrderDetails = () => {
                 <p>Price</p>
               </div>
             </div>
-          </Grid>
+          </Grid> 
           {/* ################## Rating Grid ################# */}
           <Grid item>
             <Box sx={{ color: "blue" }}>
