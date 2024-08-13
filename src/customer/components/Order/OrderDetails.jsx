@@ -39,6 +39,11 @@ const OrderDetails = () => {
               </div>
             </div>
           </Grid>
+{/* ################## Rating Grid ################# */}
+          <Grid item>
+
+
+          </Grid>
         </Grid>
       </Grid>
     </div>
