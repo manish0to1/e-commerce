@@ -16,7 +16,7 @@ const OrderDetails = () => {
         <OrderTracking activeStep={3} />
       </div>
 
-      <Grid container spacing={2} className="space-y-5">
+      <Grid container spacing={2} className="space-y-5 py-5">
         {[1, 1, 1, 1].map((item) => (
           <Grid
             item
