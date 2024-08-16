@@ -17,7 +17,7 @@ const OrderDetails = () => {
       </div>
 
       <Grid container spacing={2} className="space-y-5 py-5">
-        {[1, 1, 1, 1].map((item) => (
+        {[1, 1, 1].map((item) => (
           <Grid
             item
             container
@@ -27,7 +27,7 @@ const OrderDetails = () => {
             <Grid item xs={6}>
               <div className="flex items-center space-x-5">
                 <img
-                  className="w-[5rem] h-[5rem] object-cover object-top"
+                  className="w-[6rem] h-[6rem] object-cover object-top"
                   src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70"
                   alt=""
                 />
