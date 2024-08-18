@@ -268,7 +268,7 @@ export default function Product() {
                       </DisclosurePanel>
                     </Disclosure>
                   ))}
-
+ 
                   {/* ==================================== singleFilter ============================================== */}
                   {singleFilter.map((section) => (
                     <Disclosure
