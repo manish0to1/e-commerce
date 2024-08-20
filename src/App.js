@@ -8,10 +8,15 @@ import Navigation from "./customer/components/Navigation/Navigation.jsx";
 // import OrderPage from "./customer/components/Order/OrderPage.jsx";
 import OrderDetails from "./customer/components/Order/OrderDetails.jsx";
 import Footer from "./customer/components/Footer/Footer";
+import { Route, Routes } from "react-router-dom";
+import CustomerRouter from "./Routers/CustomerRouter.jsx";
 
 function App() {
   return (
     <div className="">
+      <Routes>
+        <Route path="/*" element={<CustomerRouter />}></Route>
+      </Routes>
       <div>
         <Navigation />
       </div>

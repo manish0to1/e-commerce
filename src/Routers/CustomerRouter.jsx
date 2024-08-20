@@ -1,17 +1,21 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Navigation from "./customer/components/Navigation/Navigation.jsx";
+
 import HomePage from "../customer/Pages/HomePage/HomePage";
-import Product from "../customer/components/Product/Product";
+import Cart from "./customer/components/Cart/Cart.jsx";
 
 const CustomerRouter = () => {
   return (
     <div>
       <div>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/" element={<Product />}></Route>
-        </Routes>
+        <Navigation />
       </div>
+
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/Cart" element={<Cart />}></Route>
+      </Routes>
     </div>
   );
 };
