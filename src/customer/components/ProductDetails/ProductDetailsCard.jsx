@@ -18,7 +18,7 @@ const ProductDetailsCard = () => {
         <Grid item xs={9}>
           <div className="space-y-3">
             <div>
-              <p className="font-semibold text-lg">Manish</p>
+              <p className="font-semibold text-lg">Martin Singh</p>
               <p className="opacity-70">August 06 , 2024</p>
             </div>
           </div>
