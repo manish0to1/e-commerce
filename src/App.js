@@ -1,5 +1,5 @@
 import "./App.css";
-import Navigation from "./customer/components/Navigation/Navigation.jsx";
+// import Navigation from "./customer/components/Navigation/Navigation.jsx";
 // import HomePage from "./customer/Pages/HomePage/HomePage";
 // import Product from "./customer/components/Product/Product.jsx";
 // import ProductDetails from "./customer/components/ProductDetails/ProductDetails.jsx";
@@ -17,9 +17,9 @@ function App() {
       <Routes>
         <Route path="/*" element={<CustomerRouter />}></Route>
       </Routes>
-      <div>
+      {/* <div>
         <Navigation />
-      </div>
+      </div> */}
       {/* <HomePage /> */}
       {/* <Product /> */}
       {/* <ProductDetails /> */}
