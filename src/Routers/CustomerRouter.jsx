@@ -5,6 +5,7 @@ import HomePage from "../customer/Pages/HomePage/HomePage";
 import Navigation from "../customer/components/Navigation/Navigation.jsx";
 import Cart from "../customer/components/Cart/Cart.jsx";
 import Product from "../customer/components/Product/Product.jsx";
+import ProductDetails from "../customer/components/ProductDetails/ProductDetails.jsx";
 
 const CustomerRouter = () => {
   return (
@@ -21,7 +22,8 @@ const CustomerRouter = () => {
           element={<Product />}
         ></Route>
 
-        {/* <ProductDetails /> */}
+        <Route path="/product/:productId" element={<ProductDetails />}></Route>
+
         {/* <Cart /> */}
         {/* <Checkout /> */}
         {/* <OrderPage /> */}
