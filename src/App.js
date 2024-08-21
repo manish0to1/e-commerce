@@ -6,11 +6,11 @@ import "./App.css";
 // import Cart from "./customer/components/Cart/Cart.jsx";
 // import Checkout from "./customer/components/Checkout/Checkout.jsx";
 // import OrderPage from "./customer/components/Order/OrderPage.jsx";
-import OrderDetails from "./customer/components/Order/OrderDetails.jsx";
+// import OrderDetails from "./customer/components/Order/OrderDetails.jsx";
 import Footer from "./customer/components/Footer/Footer";
-import { Route, Routes } from "react-router-dom";
 import CustomerRouter from "./Routers/CustomerRouter.jsx";
 
+import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div className="">
@@ -26,7 +26,7 @@ function App() {
       {/* <Cart /> */}
       {/* <Checkout /> */}
       {/* <OrderPage /> */}
-      <OrderDetails />
+      {/* <OrderDetails /> */}
       <div>
         <Footer />
       </div>

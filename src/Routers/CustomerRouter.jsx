@@ -6,7 +6,7 @@ import Navigation from "../customer/components/Navigation/Navigation.jsx";
 import Cart from "../customer/components/Cart/Cart.jsx";
 import Product from "../customer/components/Product/Product.jsx";
 import ProductDetails from "../customer/components/ProductDetails/ProductDetails.jsx";
-import Footer from "../customer/components/Footer/Footer.jsx";
+import Checkout from "../customer/components/Checkout/Checkout.jsx";
 
 const CustomerRouter = () => {
   return (
@@ -24,9 +24,8 @@ const CustomerRouter = () => {
         ></Route>
 
         <Route path="/product/:productId" element={<ProductDetails />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
 
-        {/* <Cart /> */}
-        {/* <Checkout /> */}
         {/* <OrderPage /> */}
       </Routes>
     </div>

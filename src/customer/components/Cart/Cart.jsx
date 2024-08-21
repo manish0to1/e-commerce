@@ -1,7 +1,14 @@
 import React from "react";
 import CartItem from "./CartItem";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/Checkout?step=2");
+  };
+
   return (
     <div>
       <div className="lg:grid grid-cols-3 lg:px-16 relative">
@@ -37,17 +44,17 @@ const Cart = () => {
               </div>
             </div>
             <button
+              onClick={handleCheckout}
               variant="contained"
               className="w-full px-2.5rem py-2 flex  justify-center items-center rounded-md border border-transparent bg-indigo-600 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
-              Add to Cart
+              Checkout !
             </button>
           </div>
         </div>
       </div>
-
     </div>
   );
 };
- 
+
 export default Cart;

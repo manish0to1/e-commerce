@@ -30,7 +30,7 @@ const DeliveryForm = () => {
         >
           <div className="p-5 py-7 cursor-pointer">
             <AddressCard />
-            <Button
+            <Button 
               sx={{
                 mt: 2,
                 bgcolor: "RGB(145 85 253)",
@@ -150,6 +150,7 @@ const DeliveryForm = () => {
             </form>
           </Box>
         </Grid>
+        
       </Grid>
     </div>
   );
