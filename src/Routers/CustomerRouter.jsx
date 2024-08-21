@@ -7,6 +7,8 @@ import Cart from "../customer/components/Cart/Cart.jsx";
 import Product from "../customer/components/Product/Product.jsx";
 import ProductDetails from "../customer/components/ProductDetails/ProductDetails.jsx";
 import Checkout from "../customer/components/Checkout/Checkout.jsx";
+import OrderPage from "../customer/components/Order/OrderPage.jsx";
+import OrderDetails from "../customer/components/Order/OrderDetails.jsx";
 
 const CustomerRouter = () => {
   return (
@@ -17,16 +19,24 @@ const CustomerRouter = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
+
         <Route path="/cart" element={<Cart />}></Route>
+
         <Route
           path="/:levelOne/:levelTwo/:levelThree"
           element={<Product />}
         ></Route>
 
         <Route path="/product/:productId" element={<ProductDetails />}></Route>
+
         <Route path="/checkout" element={<Checkout />}></Route>
 
-        {/* <OrderPage /> */}
+        <Route path="/account/order" element={<OrderPage />}></Route>
+
+        <Route
+          path="/account/order/:orderId"
+          element={<OrderDetails />}
+        ></Route>
       </Routes>
     </div>
   );
