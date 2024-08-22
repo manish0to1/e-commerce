@@ -10,7 +10,7 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -399,7 +399,9 @@ export default function Navigation() {
                         }}
                       >
                         <MenuItem>Profile</MenuItem>
-                        <MenuItem>Orders</MenuItem>
+                        <MenuItem onClick={() => navigate("/account/order")}>
+                          Orders
+                        </MenuItem>
                         {/* <MenuItem>
                           {true?.role === "ROLE_ADMIN"
                             ? "Admin Dashboard"
