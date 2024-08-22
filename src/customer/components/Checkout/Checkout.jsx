@@ -63,7 +63,11 @@ export default function Checkout() {
             </Box>
 
             <div className="mt-10">
-              {step == 2 ? <DeliveryForm /> : step == 3 ? <OrderSummary />:null}
+              {step == 2 ? (
+                <DeliveryForm />
+              ) : step == 3 ? (
+                <OrderSummary />
+              ) : null}
             </div>
           </React.Fragment>
         )}
