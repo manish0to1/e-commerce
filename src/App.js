@@ -12,7 +12,7 @@ import CustomerRouter from "./Routers/CustomerRouter.jsx";
 
 import { Route, Routes } from "react-router-dom";
 function App() {
-  return (
+  return ( 
     <div className="">
       <Routes>
         <Route path="/*" element={<CustomerRouter />}></Route>

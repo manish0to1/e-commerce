@@ -11,7 +11,7 @@ import OrderPage from "../customer/components/Order/OrderPage.jsx";
 import OrderDetails from "../customer/components/Order/OrderDetails.jsx";
 
 const CustomerRouter = () => {
-  return (
+  return ( 
     <div>
       <div>
         <Navigation />
