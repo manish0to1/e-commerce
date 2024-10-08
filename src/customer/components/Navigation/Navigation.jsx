@@ -11,6 +11,7 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
 import { useNavigate } from "react-router-dom";
+import AuthModel from "../../../Auth/AuthModal";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -20,23 +21,27 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const [setOpenAuthModal] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
+  const jwt = localStorage.getItem("jwt");
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleCloseUserMenu = (event) => {
     setAnchorEl(null);
   };
 
+
   const handleOpen = () => {
     setOpenAuthModal(true);
   };
-  // const handleClose = () => {
-  //   setOpenAuthModal(false);
-  // };
+  
+  const handleClose = () => {
+    setOpenAuthModal(false);
+  };
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
@@ -450,6 +455,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
+      <AuthModel handleClose={handleClose} open={openAuthModal} />
     </div>
   );
 }
