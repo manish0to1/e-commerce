@@ -1,5 +1,6 @@
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import React from "react";
+import Register from "./Register";
 
 const style = {
   position: "absolute",
@@ -13,22 +14,17 @@ const style = {
   p: 4,
 };
 
-const AuthModel = ({ handleClose, openAuthModal }) => {
+const AuthModel = ({ handleClose, open }) => {
   return (
     <div>
       <Modal
-        open={openAuthModal}
+        open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Register />
         </Box>
       </Modal>
     </div>
