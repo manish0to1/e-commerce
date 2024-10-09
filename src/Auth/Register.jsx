@@ -39,6 +39,16 @@ const Register = () => {
               autoComplete="email"
             />
           </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="password"
+              name="password"
+              label="Password here"
+              fullWidth
+              autoComplete="password"
+            />
+          </Grid>
         </Grid>
       </form>
     </div>
