@@ -1,4 +1,5 @@
-import { Grid, TextField } from "@mui/material";
+import { Padding } from "@mui/icons-material";
+import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 
 const Register = () => {
@@ -48,6 +49,17 @@ const Register = () => {
               fullWidth
               autoComplete="password"
             />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              className="bg-[#9155FD] w-full"
+              type="submit"
+              variant="contained"
+              size="large"
+              sx={{ padding: ".8rem 0", bgcolor: "#9155FD" }}
+            >
+              Register
+            </Button>
           </Grid>
         </Grid>
       </form>
