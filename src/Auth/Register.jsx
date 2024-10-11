@@ -15,7 +15,7 @@ const Register = () => {
               required
               id="name"
               name="name"
-              label="Name here"
+              label="Name"
               fullWidth
               autoComplete="given-name"
             />
@@ -26,7 +26,7 @@ const Register = () => {
               required
               id="email"
               name="email"
-              label="Email here"
+              label="Email"
               fullWidth
               autoComplete="email"
             />
@@ -36,7 +36,7 @@ const Register = () => {
               required
               id="password"
               name="password"
-              label="Password here"
+              label="Password"
               fullWidth
               autoComplete="password"
             />
