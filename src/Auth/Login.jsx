@@ -3,7 +3,7 @@ import React from "react";
 const Login = () => {
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <TextField
