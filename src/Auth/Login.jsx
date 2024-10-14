@@ -34,7 +34,7 @@ const Login = () => {
               size="large"
               sx={{ padding: ".8rem 0", bgcolor: "#9155FD" }}
             >
-              Login
+              Loginn
             </Button>
           </Grid>
         </Grid>
