@@ -44,6 +44,7 @@ const Register = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type="password"
               required
               id="password"
               name="password"
