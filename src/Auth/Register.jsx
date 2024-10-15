@@ -1,9 +1,20 @@
-import { Padding } from "@mui/icons-material";
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 
 const Register = () => {
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const userData = {
+      name: data.get("name"),
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+
+    console.log("userData", userData);
+  };
 
   return (
     <div>
