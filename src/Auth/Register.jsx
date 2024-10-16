@@ -61,7 +61,7 @@ const Register = () => {
               size="large"
               sx={{ padding: ".8rem 0", bgcolor: "#9155FD" }}
             >
-              Register here
+              Register
             </Button>
           </Grid>
         </Grid>
