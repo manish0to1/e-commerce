@@ -1,7 +1,7 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 
-const Register = () => {
+const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -70,4 +70,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
