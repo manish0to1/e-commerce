@@ -68,10 +68,16 @@ const Register = () => {
           </Grid>
         </Grid>
       </form>
-      <div>
-        <div>
+      <div className="flex justify-center flex-col items-center">
+        <div className="py-3 flex items-center">
           <p>already have an account !</p>
-          <Button onClick={() => naviagte("/login")}>Login</Button>
+          <Button
+            onClick={() => naviagte("/login")}
+            className="ml-5"
+            size="small"
+          >
+            Login
+          </Button>
         </div>
       </div>
     </div>
