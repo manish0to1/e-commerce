@@ -1,7 +1,9 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -54,6 +56,18 @@ const Login = () => {
           </Grid>
         </Grid>
       </form>
+      <div className="flex justify-center flex-col items-center">
+        <div className="py-3 flex items-center">
+          <p>don't have any account !</p>
+          <Button
+            onClick={() => navigate("/register")}
+            className="ml-5"
+            size="small"
+          >
+            Register
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

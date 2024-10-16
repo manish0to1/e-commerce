@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -71,7 +71,7 @@ const Register = () => {
         <div className="py-3 flex items-center">
           <p>already have an account !</p>
           <Button
-            onClick={() => naviagte("/login")}
+            onClick={() => navigate("/login")}
             className="ml-5"
             size="small"
           >
