@@ -11,18 +11,24 @@ import OrderPage from "../customer/components/Order/OrderPage.jsx";
 import OrderDetails from "../customer/components/Order/OrderDetails.jsx";
 
 const CustomerRouter = () => {
-  return ( 
+  return (
     <div>
       <div>
         <Navigation />
       </div>
 
       <Routes>
+        <Route path="/login" element={<HomePage />}></Route>
+        <Route path="/register" element={<HomePage />}></Route>
+
         <Route path="/" element={<HomePage />}></Route>
 
         <Route path="/cart" element={<Cart />}></Route>
 
-        <Route path="/:levelOne/:levelTwo/:levelThree" element={<Product />}></Route>
+        <Route
+          path="/:levelOne/:levelTwo/:levelThree"
+          element={<Product />}
+        ></Route>
 
         <Route path="/product/:productId" element={<ProductDetails />}></Route>
 
@@ -30,8 +36,11 @@ const CustomerRouter = () => {
 
         <Route path="/account/order" element={<OrderPage />}></Route>
 
-        <Route path="/account/order/:orderId" element={<OrderDetails />}></Route>
-    
+        <Route
+          path="/account/order/:orderId"
+          element={<OrderDetails />}
+        ></Route>
+
         {/* <Navigation /> */}
         {/* <HomePage /> */}
         {/* <Product /> */}
