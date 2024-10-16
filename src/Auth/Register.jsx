@@ -1,7 +1,9 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const naviagte = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -66,6 +68,12 @@ const Register = () => {
           </Grid>
         </Grid>
       </form>
+      <div>
+        <div>
+          <p>already have an account !</p>
+          <Button onClick={() => naviagte("/login")}>Login</Button>
+        </div>
+      </div>
     </div>
   );
 };
