@@ -1,11 +1,37 @@
-import React from "react";
 import { Button, Grid, TextField } from "@mui/material";
+import React from "react";
 
-const Login = () => {
+const Register = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const userData = {
+      name: data.get("name"),
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+
+    console.log("userData", userData);
+  };
+
   return (
     <div>
-      <form>
+      # Login Form Component
+      <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="name"
+              name="name"
+              label="Name"
+              fullWidth
+              autoComplete="given-name"
+            />
+          </Grid>
+
           <Grid item xs={12}>
             <TextField
               required
@@ -18,6 +44,7 @@ const Login = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type="password"
               required
               id="password"
               name="password"
@@ -34,7 +61,7 @@ const Login = () => {
               size="large"
               sx={{ padding: ".8rem 0", bgcolor: "#9155FD" }}
             >
-              Loginn
+              Register
             </Button>
           </Grid>
         </Grid>
@@ -43,4 +70,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
