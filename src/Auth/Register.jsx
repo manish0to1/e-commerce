@@ -60,7 +60,11 @@ const Register = () => {
               type="submit"
               variant="contained"
               size="large"
-              sx={{ padding: ".8rem 0", bgcolor: "#9155FD" }}
+              sx={{
+                padding: ".8rem 0",
+                bgcolor: "#9155FD",
+                textTransform: "none",
+              }}
             >
               Register
             </Button>
@@ -74,6 +78,7 @@ const Register = () => {
             onClick={() => navigate("/login")}
             className="ml-5"
             size="small"
+            sx={{ textTransform: "none" }}
           >
             Login
           </Button>
