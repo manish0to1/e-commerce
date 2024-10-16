@@ -18,7 +18,6 @@ const Login = () => {
 
   return (
     <div>
-      # Login Form Component
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12}>

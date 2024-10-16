@@ -20,7 +20,6 @@ const Register = () => {
 
   return (
     <div>
-      # Register Form Component
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
