@@ -24,3 +24,17 @@ export const register = (userData) => async (dispatch) => {
     dispatch(registerFailure(error.message));
   }
 };
+
+export const login = (userData) => async (dispatch) => {
+  dispatch(registerRequest());
+  try {
+    const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
+    const user = response.data;
+    if (user.jwt) {
+      localStorage.setItem("jwt", user.jwt);
+    }
+    dispatch(registerSuccess());
+  } catch (error) {
+    dispatch(registerFailure(error.message));
+  }
+};
