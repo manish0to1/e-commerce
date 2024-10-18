@@ -11,7 +11,7 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
 import { useNavigate } from "react-router-dom";
-import AuthModel from "../../../Auth/AuthModal";
+import AuthModel from "../../Auth/AuthModal";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
