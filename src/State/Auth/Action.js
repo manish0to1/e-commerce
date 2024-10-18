@@ -8,6 +8,9 @@ const {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
+  GET_USER_FAILURE,
 } = require("./ActionType");
 
 const registerRequest = () => ({ type: REGISTER_REQUEST });
@@ -41,6 +44,21 @@ export const login = (userData) => async (dispatch) => {
       localStorage.setItem("jwt", user.jwt);
     }
     dispatch(loginSuccess());
+  } catch (error) {
+    dispatch(loginFailure(error.message));
+  }
+};
+
+const getUserRequest = () => ({ type: GET_USER_REQUEST });
+const getUserSuccess = (user) => ({ type: GET_USER_SUCCESS, payload: user });
+const getUserFailure = (error) => ({ type: GET_USER_FAILURE, payload: error });
+
+export const getUser = () => async (dispatch) => {
+  dispatch(getUserRequest());
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/users/profile`);
+    const user = response.data;
+    dispatch(getUserSuccess(user));
   } catch (error) {
     dispatch(loginFailure(error.message));
   }
