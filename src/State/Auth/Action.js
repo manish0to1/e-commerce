@@ -1,5 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
-
 const { default: axios } = require("axios");
 const { API_BASE_URL } = require("../../config/apiConfig");
 
