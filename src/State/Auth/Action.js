@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type";
+
 const { default: axios } = require("axios");
 const { API_BASE_URL } = require("../../config/apiConfig");
 
@@ -11,6 +13,7 @@ const {
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
+  LOGOUT,
 } = require("./ActionType");
 
 const token = localStorage.getItem("jwt");
@@ -67,4 +70,8 @@ export const getUser = () => async (dispatch) => {
   } catch (error) {
     dispatch(getUserFailure(error.message));
   }
+};
+
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT, payload: null });
 };
