@@ -1,13 +1,20 @@
 import { Button, Grid, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { register } from "../../State/Auth/Action";
+import { getUser, register } from "../../State/Auth/Action";
 
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
 
+  // to fing user profile
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser());
+    }
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
