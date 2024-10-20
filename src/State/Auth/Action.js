@@ -1,6 +1,6 @@
 const { default: axios } = require("axios");
 const { API_BASE_URL } = require("../../config/apiConfig");
- 
+
 const {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -18,7 +18,7 @@ const token = localStorage.getItem("jwt");
 const registerRequest = () => ({ type: REGISTER_REQUEST });
 const registerSuccess = (user) => ({ type: REGISTER_SUCCESS, payload: user });
 const registerFailure = (error) => ({ type: REGISTER_FAILURE, payload: error });
- 
+
 export const register = (userData) => async (dispatch) => {
   dispatch(registerRequest());
   try {
@@ -27,6 +27,7 @@ export const register = (userData) => async (dispatch) => {
     if (user.jwt) {
       localStorage.setItem("jwt", user.jwt);
     }
+    console.log("User", user);
     dispatch(registerSuccess(user.jwt));
   } catch (error) {
     dispatch(registerFailure(error.message));
@@ -45,6 +46,7 @@ export const login = (userData) => async (dispatch) => {
     if (user.jwt) {
       localStorage.setItem("jwt", user.jwt);
     }
+    console.log("User", user);
     dispatch(loginSuccess(user.jwt));
   } catch (error) {
     dispatch(loginFailure(error.message));
@@ -64,6 +66,7 @@ export const getUser = () => async (dispatch) => {
       },
     });
     const user = response.data;
+    console.log("User", user);
     dispatch(getUserSuccess(user));
   } catch (error) {
     dispatch(getUserFailure(error.message));
