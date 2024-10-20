@@ -1,12 +1,15 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { register } from "../../State/Auth/Action";
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const data = new FormData(event.currentTarget);
 
     const userData = {
@@ -15,6 +18,7 @@ const Register = () => {
       password: data.get("password"),
     };
 
+    dispatch(register(userData));
     console.log("userData", userData);
   };
 
