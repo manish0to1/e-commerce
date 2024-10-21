@@ -13,7 +13,7 @@ const Register = () => {
   // to fing user profile
   useEffect(() => {
     if (jwt) {
-      dispatch(getUser());
+      dispatch(getUser(jwt));
     }
   }, [jwt, auth.jwt, dispatch]);
   const handleSubmit = (event) => {
