@@ -10,7 +10,7 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthModel from "../../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../State/Auth/Action";
@@ -29,6 +29,7 @@ export default function Navigation() {
   const jwt = localStorage.getItem("jwt");
   const { auth } = useSelector((store) => store);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -44,6 +45,7 @@ export default function Navigation() {
 
   const handleClose = () => {
     setOpenAuthModal(false);
+    navigate("/");
   };
 
   const handleCategoryClick = (category, section, item, close) => {
@@ -55,8 +57,17 @@ export default function Navigation() {
     if (jwt) {
       dispatch(getUser(jwt));
     }
-  });
-  useEffect(() => {}, [auth.user]);
+  }, [jwt, auth.jwt, dispatch]);
+
+  useEffect(() => {
+    if (auth.user) {
+      handleClose();
+    }
+
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      navigate(-1);
+    }
+  }, [auth.user]);
 
   return (
     <div className="bg-white pb-10">
