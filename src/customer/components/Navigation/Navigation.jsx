@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -12,6 +12,8 @@ import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
 import { useNavigate } from "react-router-dom";
 import AuthModel from "../../Auth/AuthModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../State/Auth/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -25,6 +27,8 @@ export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
+  const { auth } = useSelector((store) => store);
+  const dispatch = useDispatch();
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -46,6 +50,13 @@ export default function Navigation() {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
+
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser(jwt));
+    }
+  });
+  useEffect(() => {}, [auth.user]);
 
   return (
     <div className="bg-white pb-10">
