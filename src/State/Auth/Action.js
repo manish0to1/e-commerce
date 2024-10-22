@@ -163,6 +163,7 @@ export const getUser = (jwt) => async (dispatch) => {
 
 // Action for logout
 export const logout = () => (dispatch) => {
-  localStorage.removeItem("jwt"); // Clear token from localStorage on logout
+  // localStorage.removeItem("jwt"); // Clear token from localStorage on logout
   dispatch({ type: LOGOUT, payload: null });
+  localStorage.clear();
 };

@@ -13,7 +13,7 @@ import { navigation } from "./navigationData";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthModel from "../../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../State/Auth/Action";
+import { getUser, logout } from "../../../State/Auth/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -74,6 +74,11 @@ export default function Navigation() {
       navigate(-1);
     }
   }, [auth.user]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    handleCloseUserMenu();
+  };
 
   return (
     <div className="bg-white pb-10">
@@ -424,7 +429,7 @@ export default function Navigation() {
                         <MenuItem onClick={() => navigate("/account/order")}>
                           Orders
                         </MenuItem>
-                        <MenuItem>Logout</MenuItem>
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </Menu>
                     </div>
                   ) : (
