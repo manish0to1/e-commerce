@@ -30,39 +30,46 @@ export default function Navigation() {
   const { auth } = useSelector((store) => store);
   const dispatch = useDispatch();
   const location = useLocation();
-
+  // Handle user menu click
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleCloseUserMenu = (event) => {
+  // Handle closing the user menu
+  const handleCloseUserMenu = () => {
     setAnchorEl(null);
   };
 
+  // Open authentication modal
   const handleOpen = () => {
     setOpenAuthModal(true);
   };
 
+  // Close authentication modal
   const handleClose = () => {
     setOpenAuthModal(false);
   };
 
+  // Handle category navigation
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
 
+  // Fetch user data when JWT is available
   useEffect(() => {
-    if (jwt) {
-      dispatch(getUser(jwt));
+    if (auth.jwt) {
+      dispatch(getUser(auth.jwt));
     }
-  }, [jwt, auth.jwt, dispatch]);
+  }, [auth.jwt, dispatch]);
 
+  // Handle navigation and modal closing based on auth.user state
   useEffect(() => {
     if (auth.user) {
-      handleClose();
+      handleClose(); // Close auth modal if user is logged in
     }
 
+    // Navigate back if on login or register pages
     if (location.pathname === "/login" || location.pathname === "/register") {
       navigate(-1);
     }
@@ -388,42 +395,38 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {auth.user ? (
-                    <>
-                      {auth.user.firstName} (
-                      <div>
-                        <Avatar
-                          className="text-white"
-                          onClick={handleUserClick}
-                          aria-controls={open ? "basic-menu" : undefined}
-                          aria-haspopup="true"
-                          aria-expanded={open ? "true" : undefined}
-                          sx={{
-                            bgcolor: deepPurple[500],
-                            color: "white",
-                            cursor: "pointer",
-                          }}
-                        >
-                          {auth.user.firstName[0].toUpperCase()}
-                        </Avatar>
-                        <Menu
-                          id="basic-menu"
-                          anchorEl={anchorEl}
-                          open={openUserMenu}
-                          onClose={handleCloseUserMenu}
-                          MenuListProps={{
-                            "aria-labelledby": "basic-button",
-                          }}
-                        >
-                          <MenuItem>Profile</MenuItem>
-                          <MenuItem onClick={() => navigate("/account/order")}>
-                            Orders
-                          </MenuItem>
-                          <MenuItem>Logout</MenuItem>
-                        </Menu>
-                      </div>
-                      )
-                    </>
+                  {auth.user?.firstName ? (
+                    <div>
+                      <Avatar
+                        className="text-white"
+                        onClick={handleUserClick}
+                        aria-controls={openUserMenu ? "basic-menu" : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={openUserMenu ? "true" : undefined}
+                        sx={{
+                          bgcolor: deepPurple[500],
+                          color: "white",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {auth.user?.firstName[0].toUpperCase()}
+                      </Avatar>
+                      <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={openUserMenu}
+                        onClose={handleCloseUserMenu}
+                        MenuListProps={{
+                          "aria-labelledby": "basic-button",
+                        }}
+                      >
+                        <MenuItem>Profile</MenuItem>
+                        <MenuItem onClick={() => navigate("/account/order")}>
+                          Orders
+                        </MenuItem>
+                        <MenuItem>Logout</MenuItem>
+                      </Menu>
+                    </div>
                   ) : (
                     <Button
                       onClick={handleOpen}
