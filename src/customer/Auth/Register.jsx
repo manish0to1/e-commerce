@@ -38,9 +38,19 @@ const Register = () => {
           <Grid item xs={12}>
             <TextField
               required
-              id="name"
-              name="name"
-              label="Name"
+              id="firstName"
+              name="firstName"
+              label="firstName"
+              fullWidth
+              autoComplete="given-name"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="lastName"
+              name="lastName"
+              label="lastName"
               fullWidth
               autoComplete="given-name"
             />
