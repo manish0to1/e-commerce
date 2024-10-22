@@ -388,61 +388,50 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {auth.user?.firstName} (
-                  <div>
-                    <Avatar
-                      className="text-white"
-                      onClick={handleUserClick}
-                      aria-controls={open ? "basic-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                      // onClick={handleUserClick}
-                      sx={{
-                        bgcolor: deepPurple[500],
-                        color: "white",
-                        cursor: "pointer",
-                      }}
-                    >
-                      {auth.user.firstName[0].toUpperCase()}
-                    </Avatar>
-                    {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
-                    <Menu
-                      id="basic-menu"
-                      anchorEl={anchorEl}
-                      open={openUserMenu}
-                      onClose={handleCloseUserMenu}
-                      MenuListProps={{
-                        "aria-labelledby": "basic-button",
-                      }}
-                    >
-                      <MenuItem>Profile</MenuItem>
-                      <MenuItem onClick={() => navigate("/account/order")}>
-                        Orders
-                      </MenuItem>
-                      {/* <MenuItem>
-                          {true?.role === "ROLE_ADMIN"
-                            ? "Admin Dashboard"
-                            : "Orders"}
-                        </MenuItem> */}
-                      <MenuItem>Logout</MenuItem>
-                    </Menu>
-                  </div>
+                  {auth.user ? (
+                    <>
+                      {auth.user.firstName} (
+                      <div>
+                        <Avatar
+                          className="text-white"
+                          onClick={handleUserClick}
+                          aria-controls={open ? "basic-menu" : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? "true" : undefined}
+                          sx={{
+                            bgcolor: deepPurple[500],
+                            color: "white",
+                            cursor: "pointer",
+                          }}
+                        >
+                          {auth.user.firstName[0].toUpperCase()}
+                        </Avatar>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={openUserMenu}
+                          onClose={handleCloseUserMenu}
+                          MenuListProps={{
+                            "aria-labelledby": "basic-button",
+                          }}
+                        >
+                          <MenuItem>Profile</MenuItem>
+                          <MenuItem onClick={() => navigate("/account/order")}>
+                            Orders
+                          </MenuItem>
+                          <MenuItem>Logout</MenuItem>
+                        </Menu>
+                      </div>
+                      )
+                    </>
                   ) : (
-                  <Button
-                    onClick={handleOpen}
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Signin
-                  </Button>
-                  )
+                    <Button
+                      onClick={handleOpen}
+                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    >
+                      Sign in
+                    </Button>
+                  )}
                 </div>
 
                 {/* Search */}
