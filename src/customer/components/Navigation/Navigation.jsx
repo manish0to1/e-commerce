@@ -437,7 +437,7 @@ export default function Navigation() {
                       onClick={handleOpen}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
-                      Sign in
+                      Sign In
                     </Button>
                   )}
                 </div>
