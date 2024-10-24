@@ -81,10 +81,13 @@
 // ############################################ GPT ###################################### //
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../State/Auth/Action";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -96,6 +99,7 @@ const Login = () => {
       password: data.get("password"),
     };
 
+    dispatch(login(userData));
     console.log("userData", userData);
   };
 
